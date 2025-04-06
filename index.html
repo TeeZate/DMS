@@ -10,12 +10,14 @@
 <body>
     <nav>
         <div class="nav-container">
-            <a href="#" class="nav-logo">DMS</a>
+            <a href="index.html" class="nav-logo">
+                <img src="IMG_4263.png" alt="DMS Logo">
+              </a>
             <button class="menu-toggle" id="menuToggle">☰</button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#cta">Contact</a></li>
+                <li><a href="contact-us.html">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -33,7 +35,7 @@
     <section id="about">
         <div class="container">
             <h2>The Digital Advantage</h2>
-            <p>With a focus on innovation and reliability, we specialize in smart HVAC monitoring systems, offering expert services in installation, maintenance, and remote management of air conditioning systems. Our solutions help businesses achieve optimal energy efficiency and comfort control.</p>
+            <p>With a focus on innovation and reliability, we offer expert services in the installation, maintenance, and administration of various security and monitoring systems tailored to meet the diverse requirements of modern businesses.</p>
         </div>
     </section>    
     <!-- Services Section -->
@@ -41,25 +43,174 @@
         <div class="container">
             <h2>Services We Offer</h2>
             <div class="services-grid">
+                <!-- CCTV and Access Control -->
                 <div class="service-card">
-                    <i class="fas fa-video fa-3x"></i>
+                    <svg class="service-icon futuristic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                        <!-- Camera Body -->
+                        <rect x="16" y="22" width="32" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2" class="camera-body"/>
+                        
+                        <!-- Lens Assembly -->
+                        <g class="lens-assembly">
+                            <circle cx="32" cy="32" r="10" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="32" cy="32" r="7" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <circle cx="32" cy="32" r="4" fill="none" stroke="currentColor" stroke-width="1"/>
+                            <!-- Central Sensor -->
+                            <circle cx="32" cy="32" r="1.5" fill="currentColor"/>
+                            <!-- Reflection Glint -->
+                            <path d="M29 29l1.5 1.5" stroke="currentColor" stroke-width="0.8" stroke-linecap="round"/>
+                        </g>
+                        
+                        <!-- Mounting Arm -->
+                        <g class="mount-arm">
+                            <path d="M56 16v-4h4" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <path d="M56 16l4-4v20l-4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <circle cx="56" cy="16" r="1.5" fill="currentColor"/>
+                        </g>
+                        
+                        <!-- Status Indicators -->
+                        <g class="status-indicators">
+                            <!-- Power Light -->
+                            <circle cx="20" cy="28" r="1.5" fill="#4CAF50"/>
+                            <!-- Recording Light -->
+                            <circle cx="20" cy="32" r="1.5" fill="#F44336"/>
+                            <!-- Connection Status -->
+                            <path d="M44 28c3 0 6 1 8 3M44 32c2 0 4 1 5 2M44 36c1 0 2.5.5 3 1.5" 
+                                  stroke="currentColor" stroke-width="1" fill="none" stroke-linecap="round"/>
+                        </g>
+                        
+                        <!-- Technical Details -->
+                        <g class="technical-details">
+                            <!-- Ventilation -->
+                            <path d="M24 40h2m4 0h2m4 0h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                            <!-- Infrared Sensors -->
+                            <circle cx="28" cy="44" r="1" fill="currentColor"/>
+                            <circle cx="32" cy="44" r="1" fill="currentColor"/>
+                            <circle cx="36" cy="44" r="1" fill="currentColor"/>
+                            <!-- Branding -->
+                            <text x="32" y="50" font-size="3" text-anchor="middle" fill="currentColor" opacity="0.7">HD-SEC</text>
+                        </g>
+                    </svg>
                     <h3>CCTV and Access Control</h3>
-                    <p>Cutting edge cctv and access control systems for surveillance and movement control</p>
+                    <p>Cutting edge CCTV and access control systems for surveillance and movement control</p>
                 </div>
-                
+            
                 <div class="service-card">
-                    <i class="fas fa-truck fa-3x"></i>
+                    <svg class="service-icon futuristic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                        <!-- Road Line -->
+                        <path d="M0 48h64" stroke="currentColor" stroke-width="1" stroke-dasharray="4 2" class="road-line"/>
+                        
+                        <!-- First Truck -->
+                        <g class="truck-one">
+                            <!-- Truck Cabin -->
+                            <path d="M8 36h12v8H8z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <!-- Windshield -->
+                            <path d="M10 37l2-3h6l2 3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <!-- Cargo Container -->
+                            <path d="M20 32h16v12H20z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <!-- Container Details -->
+                            <path d="M22 34h12m-12 4h12m-12 4h12" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+                            <!-- Wheels -->
+                            <circle cx="12" cy="44" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="30" cy="44" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <!-- Wheel Details -->
+                            <circle cx="12" cy="44" r="1" fill="none" stroke="currentColor" stroke-width="1"/>
+                            <circle cx="30" cy="44" r="1" fill="none" stroke="currentColor" stroke-width="1"/>
+                            <!-- Headlight -->
+                            <path d="M8 38h2" stroke="currentColor" stroke-width="1.5"/>
+                            <!-- GPS Signal -->
+                            <path class="signal" d="M16 28c3-3 6-3 9 0" fill="none" stroke="currentColor" stroke-width="1"/>
+                            <!-- Side Mirror -->
+                            <path d="M8 38v-2" stroke="currentColor" stroke-width="1"/>
+                        </g>
+                
+                        <!-- Second Truck -->
+                        <g class="truck-two">
+                            <!-- Truck Cabin -->
+                            <path d="M40 36h12v8H40z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <!-- Windshield -->
+                            <path d="M42 37l2-3h6l2 3" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                            <!-- Cargo Container -->
+                            <path d="M52 32h8v12h-8z" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <!-- Container Details -->
+                            <path d="M53 34h6m-6 4h6m-6 4h6" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+                            <!-- Wheels -->
+                            <circle cx="44" cy="44" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="56" cy="44" r="3" fill="none" stroke="currentColor" stroke-width="2"/>
+                            <!-- Wheel Details -->
+                            <circle cx="44" cy="44" r="1" fill="none" stroke="currentColor" stroke-width="1"/>
+                            <circle cx="56" cy="44" r="1" fill="none" stroke="currentColor" stroke-width="1"/>
+                            <!-- Headlight -->
+                            <path d="M40 38h2" stroke="currentColor" stroke-width="1.5"/>
+                            <!-- GPS Signal -->
+                            <path class="signal" d="M48 28c3-3 6-3 9 0" fill="none" stroke="currentColor" stroke-width="1"/>
+                            <!-- Side Mirror -->
+                            <path d="M40 38v-2" stroke="currentColor" stroke-width="1"/>
+                        </g>
+                
+                        <!-- Central Hub -->
+                        <circle cx="32" cy="16" r="4" fill="none" stroke="currentColor" stroke-width="2" class="hub"/>
+                        <circle cx="32" cy="16" r="2" fill="none" stroke="currentColor" stroke-width="1"/>
+                        
+                        <!-- Connection Lines -->
+                        <path class="connection-line-1" d="M16 28l16-12" stroke="currentColor" stroke-width="1" stroke-dasharray="4 2"/>
+                        <path class="connection-line-2" d="M48 28l-16-12" stroke="currentColor" stroke-width="1" stroke-dasharray="4 2"/>
+                        
+                        <!-- Data Points -->
+                        <circle class="data-point" cx="20" cy="24" r="1" fill="currentColor"/>
+                        <circle class="data-point" cx="44" cy="24" r="1" fill="currentColor"/>
+                        
+                        <!-- Additional Data Indicators -->
+                        <path class="data-flow" d="M32 12v-4" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+                        <path class="data-flow" d="M28 16h-4" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+                        <path class="data-flow" d="M36 16h4" stroke="currentColor" stroke-width="1" opacity="0.5"/>
+                    </svg>
                     <h3>Fleet Management</h3>
                     <p>Reliable and feature packed fleet management and fuel monitoring solutions</p>
-                </div>
-                
+                </div>                              
+            
                 <div class="service-card">
-                    <i class="fas fa-plug fa-3x"></i>
+                    <svg class="service-icon futuristic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+                        <!-- Main Monitor Body -->
+                        <rect x="8" y="8" width="48" height="36" rx="2" fill="none" stroke="currentColor" stroke-width="2"/>
+                        
+                        <!-- Screen Area -->
+                        <rect x="12" y="12" width="40" height="28" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        
+                        <!-- Monitoring Lines -->
+                        <path class="monitor-line-1" d="M12 26h8l4-8 4 16 4-12 4 8 8-4h8" 
+                              fill="none" stroke="currentColor" stroke-width="1.5"/>
+                        <path class="monitor-line-2" d="M12 30h6l6-6 6 12 6-8 6 4h10" 
+                              fill="none" stroke="currentColor" stroke-width="1" opacity="0.6"/>
+                        
+                        <!-- Grid Lines -->
+                        <path d="M12 16h40m0 8h-40m0 8h40m0 8h-40" 
+                              stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                        <path d="M20 12v28m12 0v-28m12 0v28" 
+                              stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                        
+                        <!-- Stand -->
+                        <path d="M28 44h8l4 12h-16z" fill="none" stroke="currentColor" stroke-width="2"/>
+                        
+                        <!-- Control Buttons -->
+                        <circle cx="16" cy="46" r="1.5" fill="currentColor"/>
+                        <circle cx="22" cy="46" r="1.5" fill="currentColor"/>
+                        <circle cx="28" cy="46" r="1.5" fill="currentColor"/>
+                        
+                        <!-- Status Indicators -->
+                        <circle cx="52" cy="14" r="1" fill="currentColor" class="status-light"/>
+                        <circle cx="52" cy="18" r="1" fill="currentColor" class="status-light"/>
+                        
+                        <!-- Data Points -->
+                        <circle cx="16" cy="26" r="1" fill="currentColor" class="data-point"/>
+                        <circle cx="24" cy="18" r="1" fill="currentColor" class="data-point"/>
+                        <circle cx="32" cy="34" r="1" fill="currentColor" class="data-point"/>
+                        <circle cx="40" cy="22" r="1" fill="currentColor" class="data-point"/>
+                        <circle cx="48" cy="26" r="1" fill="currentColor" class="data-point"/>
+                    </svg>
                     <h3>Genset Monitoring</h3>
                     <p>Smart technologies for monitoring usage and fuel consumption of generator sets</p>
-                </div>
-            </div>
-            
+                </div>                
+            </div>                 
         </div>
     </section>
     
