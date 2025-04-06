@@ -273,7 +273,7 @@
     
             <!-- Copyright -->
             <div class="footer-bottom">
-                <p>&copy; 2024 Digital Monitoring Solutions. All Rights Reserved.</p>
+                <p id="copyright"></p>
             </div>
         </div>
     </footer> 
@@ -291,6 +291,8 @@
                 navMenu.classList.remove('active');
             });
         });
+        document.getElementById('copyright').innerHTML = 
+        `&copy; ${new Date().getFullYear()} Digital Monitoring Solutions. All Rights Reserved.`;
     </script>
       
 </body>
