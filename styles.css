@@ -1,13 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
 
 body {
-  font-family: 'Inter', sans-serif;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    font-size: 1.5rem;
   line-height: 1.6;
   color: #333;
 }
 
-h1, h2, h3 {
+h1, h2{
     font-family: "Bruno Ace", sans-serif;
 }
 /* Global Styles */
@@ -15,7 +17,7 @@ h1, h2, h3 {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: "Raleway", sans-serif;
 }
 :root {
 --primary-color: #0b4247;
@@ -215,17 +217,68 @@ header p {
 
 /* About Section */
 #about {
-    background: #f9f9f9;
+    background: #0b4247;
     text-align: center;
 }
 
 #about h2 {
-    color:#0b4247;
+    color:white;
+    font-size: 3rem;
 }
 
-#about p {
-    max-width: 800px;
-    margin: 0 auto 30px;
+.about-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 3rem;
+}
+
+.about-subheader {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-subheader h2 {
+    font-weight: 700;
+    color: white;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.about-content {
+    text-align: left;
+    flex: 1;
+}
+
+.about-content p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: white;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .about-subheader {
+
+        min-width: unset;
+    }
+
+    .about-subheader h2 {
+        font-size: 2rem;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+    }
 }
 
 /* Services Section */
@@ -728,9 +781,9 @@ header p {
 .footer {
     display: flex;
     flex-direction: row;
-    background-color: #0b4247;
-    color: #ffffff;
-    padding: 4rem 0 2rem;
+    background-color: white;
+    color: #0b4247;
+    padding: 0rem 0rem;
     position: relative;
 }
 
@@ -742,17 +795,17 @@ header p {
     right: 0;
     height: 3px;
     background: linear-gradient(90deg, 
-        rgba(255,255,255,0) 0%, 
-        rgba(255,255,255,0.3) 50%, 
-        rgba(255,255,255,0) 100%);
+    #0b4247 0%, 
+    #0b4247 50%, 
+    #0b4247 100%);
 }
 
 .footer-content {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
+    gap: 19rem;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0rem;
 }
 
 .footer-grid {
@@ -763,7 +816,7 @@ header p {
 }
 
 .footer-section h4 {
-    color: #ffffff;
+    color: #0b4247;
     font-size: 1.2rem;
     margin-bottom: 1.5rem;
     position: relative;
@@ -781,9 +834,10 @@ header p {
 }
 
 .footer-section p {
-    color: rgba(255, 255, 255, 0.8);
+    color: #0b4247;
     line-height: 1.6;
     margin-bottom: 1rem;
+    font-size: 5rem;
 }
 
 .footer-section ul {
@@ -796,7 +850,7 @@ header p {
 }
 
 .footer-section ul li a {
-    color: rgba(255, 255, 255, 0.8);
+    color: #0b4247;
     text-decoration: none;
     transition: color 0.3s ease;
     display: inline-block;
@@ -868,7 +922,7 @@ header p {
 }
 
 .social-links a {
-    color: rgba(255, 255, 255, 0.8);
+    color: #0b4247;
     font-size: 1.5rem;
     transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -885,7 +939,7 @@ header p {
 }
 
 .footer-bottom p {
-    color: rgba(255, 255, 255, 0.6);
+    color: #0b4247;
     font-size: 0.9rem;
 }
 
