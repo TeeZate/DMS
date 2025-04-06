@@ -15,99 +15,65 @@
               </a>
             <button class="menu-toggle" id="menuToggle">☰</button>
             <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">About</a></li>
-                <li><a href="index.html">Services</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="contact-us.html">Contact</a></li>
             </ul>
         </div>
     </nav>
+    <div class="contact-header">
+        <div class="header-content">
+            <h1>Discover the Possibilities</h1>
+            <div class="header-divider"></div>
+            <p class="header-description">Contact us for more information to get digital assessment for your business.</p>
+        </div>
+    </div>    
 <!-- Contact Section -->
-<section id="contact" class="contact-section">
-    <div class="container">
-        <h2>Contact Us</h2>
-        <div class="contact-wrapper">
-            <!-- Contact Information -->
-            <div class="contact-info">
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Our Location</h3>
-                    <p>3450 Maridale, Norton</p>
+<div class="contact-section">
+    <div class="contact-container">
+        <form id="contactForm" class="contact-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" id="firstName" placeholder="First Name" required>
+                    <!-- <label for="firstName">First Name</label> -->
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Phone Number</h3>
-                    <p>+263 773 319 209</p>
+
+                <div class="form-group">
+                    <input type="text" id="lastName" placeholder="Last Name" required>
+                    <label for="lastName">Last Name</label>
                 </div>
-                <div class="info-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email Address</h3>
-                    <p>info@dms.co.zw</p>
+
+                <div class="form-group">
+                    <input type="email" id="email" placeholder="Email Address" required>
+                    <label for="email">Email Address</label>
+                </div>
+
+                <div class="form-group">
+                    <input type="tel" id="phone" placeholder="Phone Number" required>
+                    <label for="phone">Phone Number</label>
                 </div>
             </div>
 
-            <!-- Contact Form -->
-            <div class="contact-form">
-                <form id="contactForm" action="mailto:info@dms.co.zw" method="POST" enctype="text/plain">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" required>
-                            <label for="name">Your Name</label>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" required>
-                            <label for="email">Your Email</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" required>
-                        <label for="subject">Subject</label>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" required></textarea>
-                        <label for="message">Your Message</label>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
+            <div class="form-group message-group">
+                <textarea id="message" placeholder="Message" required></textarea>
+                
             </div>
-        </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
     </div>
-</section>
+</div>
+
+
  
 <footer class="footer">
     <div class="footer-content">
-        <div class="footer-grid">
-            <!-- Company Info -->
-            <div class="footer-section">
-                <h4>Digital Monitoring Solutions</h4>
-                <p>Innovative solutions for modern security and monitoring needs.</p>
-                <div class="contact-info">
-                    <p><i class="fas fa-phone"></i> +263 773 319 209</p>
-                    <p><i class="fas fa-envelope"></i> info@dms.co.zw</p>
-                    <p><i class="fas fa-location-dot"></i> 3450 Maridale, Norton</p>
-                </div>
-            </div>
-
-            <!-- Quick Links -->
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html">About Us</a></li>
-                    <li><a href="index.html">Services</a></li>
-                    <li><a href="contact-us.html">Contact</a></li>
-                </ul>
-            </div>
-
-            <!-- Services -->
-            <div class="footer-section">
-                <h4>Our Services</h4>
-                <ul>
-                    <li><a href="#cctv">CCTV Systems</a></li>
-                    <li><a href="#access">Access Control</a></li>
-                    <li><a href="#fleet">Fleet Management</a></li>
-                    <li><a href="#monitoring">24/7 Monitoring</a></li>
-                </ul>
-            </div>
+        <a href="index.html" class="nav-logo">
+            <img src="IMG_4263.png" alt="DMS Logo">
+          </a>
+        
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p id="copyright"></p>
         </div>
 
         <!-- Social Links -->
@@ -122,10 +88,6 @@
             </a>
         </div>
 
-        <!-- Copyright -->
-        <div class="footer-bottom">
-            <p id="copyright"></p>
-        </div>      
     </div>
 </footer> 
     
