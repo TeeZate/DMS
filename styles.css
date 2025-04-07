@@ -285,15 +285,18 @@ background: var(--primary-color);
 }
 
 .btn {
-    display: inline-block;
-    background: #0b4247; 
+    background-color: #0c4348;
     color: white;
-    padding: 10px 25px;
-    border: none;
-    border-radius: 5px;
     text-decoration: none;
-    font-weight: bold;
-    transition: background 0.3s;
+    padding: 1rem 2rem;
+    border: 2px solid white;
+    text-align: center;
+    align-self: center;
+    font-size: 1.3rem;
+    margin: 20px auto;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .btn:hover {
