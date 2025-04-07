@@ -132,29 +132,31 @@ window.addEventListener('scroll', () => {
 
 // Form handling
 document.getElementById('contactForm').addEventListener('submit', function(e) {
-e.preventDefault();
+    e.preventDefault();
 
-// Get form values
-const name = document.getElementById('name').value;
-const email = document.getElementById('email').value;
-const subject = document.getElementById('subject').value;
-const message = document.getElementById('message').value;
+    // Get form values
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
 
-// Construct email body
-const emailBody = `
-Name: ${name}
+    // Construct email subject and body
+    const subject = `New Inquiry from ${firstName} ${lastName}`;
+    const emailBody = `
+Name: ${firstName} ${lastName}
 Email: ${email}
-Subject: ${subject}
+Phone: ${phone}
 
 Message:
 ${message}
 `;
 
-// Create mailto link
-const mailtoLink = `mailto:info@dms.co.zw?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+    // Create mailto link
+    const mailtoLink = `mailto:info@dms.co.zw?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
 
-// Open default email client
-window.location.href = mailtoLink;
+    // Open default email client
+    window.location.href = mailtoLink;
 });
 
 // Add animation when form fields are in focus
