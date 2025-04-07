@@ -30,34 +30,33 @@
 <!-- Contact Section -->
 <div class="contact-section">
     <div class="contact-container">
-        <form id="contactForm" class="contact-form">
+        <form id="contactForm" class="contact-form" action="https://formsubmit.co/info@dms.co.zw" method="POST">
+            <!-- Add a hidden input for the subject -->
+            <input type="hidden" name="_subject" value="New Inquiry from DMS Website">
+            
+            <!-- Prevent FormSubmit from showing a success page -->
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+            
+            <!-- Enable captcha (optional) -->
+            <input type="hidden" name="_captcha" value="false">
+            
             <div class="form-row">
                 <div class="form-group">
-                    <input type="text" id="firstName" placeholder="First Name" required>
-                    <!-- <label for="firstName">First Name</label> -->
+                    <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
                 </div>
-
                 <div class="form-group">
-                    <input type="text" id="lastName" placeholder="Last Name" required>
-                    <!-- <label for="lastName">Last Name</label> -->
+                    <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
                 </div>
-
                 <div class="form-group">
-                    <input type="email" id="email" placeholder="Email Address" required>
-                    <!-- <label for="email">Email Address</label> -->
+                    <input type="email" id="email" name="email" placeholder="Email Address" required>
                 </div>
-
                 <div class="form-group">
-                    <input type="tel" id="phone" placeholder="Phone Number" required>
-                    <!-- <label for="phone">Phone Number</label> -->
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
                 </div>
             </div>
-
             <div class="form-group message-group">
-                <textarea id="message" placeholder="Message" required></textarea>
-                
+                <textarea id="message" name="message" placeholder="Message" required></textarea>
             </div>
-
             <button type="submit" class="submit-btn">Submit</button>
         </form>
     </div>
