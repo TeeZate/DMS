@@ -23,13 +23,15 @@ h1, h2{
 --primary-color: #0b4247; 
 --secondary-color: #00487a;
 }
+
+/* Navbar Base Styles */
 nav {
     background: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 1003;
     transition: transform 0.3s ease-in-out;
 }
 
@@ -41,16 +43,18 @@ nav.nav-visible {
     transform: translateY(0);
 }
 
-
 .nav-container {
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 1rem 2rem;
-max-width: 1200px;
-margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1000;
 }
 
+/* Logo Styles */
 .nav-logo {
     display: flex;
     align-items: center;
@@ -58,46 +62,151 @@ margin: 0 auto;
     text-decoration: none;
     color: currentColor;
     font-weight: 500;
+    z-index: 1000;
 }
 
 .nav-logo img {
-    height: 140px; /* Adjust this value to match your navbar height */
+    height: 140px;
     width: auto;
     object-fit: contain;
+    transition: height 0.5s ease-in-out;
+    position: relative;
+    z-index: 1000;
 }
 
-/* Optional: Add hover effect */
-.nav-logo:hover {
-    opacity: 0.9;
+/* Close Button */
+.close-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #0c4348;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1003;
 }
 
-/* Responsive adjustments */
+.close-menu::before {
+    content: '×';
+}
+
+/* Overlay Styles */
+.nav-overlay {
+    position: fixed;
+    top: 0; /* Changed to cover full height */
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    backdrop-filter: blur(3px);
+}
+
+/* Sidebar Styles */
+.nav-menu {
+    position: fixed;
+    text-decoration: none;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 80%;
+    max-width: 300px;
+    background: white;
+    color: #0c4348;
+    gap: 0px;
+    display: flex;
+    flex-direction: column;
+    transition: left 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+    z-index: 1002; /* Higher than overlay to prevent blur effect */
+    box-shadow: 2px 0 15px rgba(0,0,0,0.3);
+}
+.nav-menu li {
+    margin: 1.5rem 0;
+    list-style: none;
+    gap: 0px;
+}
+
+.nav-menu a {
+    color: #0c4348;
+    background-color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    display: block;
+    padding: 1.5rem 1rem;
+    transition: transform 0.3s ease;
+}
+.nav-menu a:hover {
+    transform: translateX(10px);
+    background-color: #0c4348;
+    color: white;
+}
+/* Active/current page link style */
+.nav-menu a.active,
+.nav-menu li.active a {
+    color: white;
+    background-color: #0c4348;
+}
+
+
+.nav-menu.active {
+    left: 0;
+}
+
+.nav-menu li.active {
+    background-color: #0c4348;
+    color: white;
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ensure navbar stays above overlay */
+nav {
+    z-index: 1003;
+}
+
+/* Keep logo and menu toggle above overlay */
+.nav-logo, 
+.menu-toggle {
+    position: relative;
+    z-index: 1000;
+}
+
+
+/* Mobile Adjustments */
 @media (max-width: 768px) {
     .nav-logo img {
         height: 32px;
     }
+    
+    :root {
+        --navbar-height: 60px; /* Adjust for mobile */
+    }
 }
 
-.nav-menu {
-display: flex;
-list-style: none;
-margin: 0;
-padding: 0;
-}
+/* Desktop Adjustments */
+@media (min-width: 769px) {
+    .nav-menu {
+        padding-top: 50px;
+    }
 
-.nav-menu li {
-margin-left: 2rem;
-}
-
-.nav-menu a {
-color: #333;
-text-decoration: none;
-font-weight: 500;
-transition: color 0.3s;
-}
-
-.nav-menu a:hover {
-color: var(--primary-color);
+    .nav-menu li{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        gap: 0px;
+    }
+    
+    :root {
+        --navbar-height: 80px; /* Adjust for desktop */
+    }
 }
 
 /* Adjust header padding to account for fixed nav */
@@ -107,12 +216,15 @@ margin-top: 70px;
 
 /* Mobile menu button */
 .menu-toggle {
-display: none;
-background: none;
+display: block;
+background: #0c4348;
+color: white;
 border: none;
-font-size: 1.5rem;
+font-size: 1rem;
 cursor: pointer;
-color: var(--primary-color);
+padding: 3px 8px;
+border-radius: 7px;
+transition: background 0.3s;
 }
 
 /* Mobile responsive styles */
@@ -608,6 +720,9 @@ header p {
 
 /* Contact Form Styles */
 .contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #0c4348;
     padding: 40px;
     border-radius: 10px;
@@ -641,14 +756,10 @@ header p {
     box-shadow: 0 8px 24px rgba(0,0,0,0.1);
 } */
 
-.contact-form {
-    width: 100%;
-}
-
 .form-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 3rem;
     margin-bottom: 2rem;
 }
 
@@ -664,7 +775,7 @@ header p {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 0.75rem;
+    padding: 0.90rem;
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     background: white;
@@ -710,13 +821,14 @@ header p {
 }
 
 .submit-btn {
-    width: 100%;
     background-color: #0c4348;
     color: white;
     padding: 1rem 2rem;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
+    border: 2px solid white;
+    text-align: center;
+    align-self: center;
+    font-size: 1.3rem;
+    margin: 20px auto;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -792,7 +904,6 @@ header p {
     flex-direction: column;
     background-color: white;
     color: #0c4348;
-    padding: 2rem 1rem;
     position: relative;
     width: 100%;
 }
@@ -809,6 +920,12 @@ header p {
     #0b4247 50%, 
     #0b4247 100%);
 }
+.footer-logo img {
+    height: 80px; /* Adjust this value to match your navbar height */
+    width: auto;
+    object-fit: contain;
+}
+
 
 .footer-content {
     display: flex;

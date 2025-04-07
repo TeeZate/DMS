@@ -1,10 +1,83 @@
-const menuToggle = document.getElementById('menuToggle');
-const navMenu = document.getElementById('navMenu');
-
-menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    // Create overlay div
+    const overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    document.body.appendChild(overlay);
+    
+    // Create close button
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-menu';
+    closeButton.setAttribute('aria-label', 'Close menu');
+    navMenu.insertBefore(closeButton, navMenu.firstChild);
+    
+    // Toggle menu function
+    function toggleMenu() {
+        const isOpening = !navMenu.classList.contains('active');
+        
+        if (isOpening) {
+            navMenu.classList.add('active');
+            overlay.classList.add('active');
+            menuToggle.classList.add('active');
+            menuToggle.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        } else {
+            closeMenu();
+        }
+    }
+    
+    // Close menu function
+    function closeMenu() {
+        navMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+    }
+    
+    // Event listeners
+    menuToggle.addEventListener('click', toggleMenu);
+    closeButton.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    
+    // Close when clicking menu links
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 768) { // Only close on mobile
+                closeMenu();
+            }
+        });
+    });
+    
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+    
+    // Accessibility improvements
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-controls', 'navMenu');
+    menuToggle.setAttribute('aria-label', 'Toggle menu');
+    
+    // Make toggle button work in desktop mode
+    function handleResize() {
+        if (window.innerWidth > 768) {
+            // Ensure menu is visible in desktop mode
+            navMenu.classList.remove('active');
+            overlay.classList.remove('active');
+            menuToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Initial check and resize listener
+    handleResize();
+    window.addEventListener('resize', handleResize);
 });
-
 // Close menu when clicking a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
@@ -96,5 +169,15 @@ if (!this.value) {
 }
 });
 });
-document.getElementById('copyright').innerHTML = 
-`&copy; ${new Date().getFullYear()} Digital Monitoring Solutions. All Rights Reserved.`;
+
+document.addEventListener('DOMContentLoaded', function() {
+    const currentLocation = window.location.pathname;
+    const menuItems = document.querySelectorAll('.nav-menu a');
+    
+    menuItems.forEach(item => {
+        if(item.getAttribute('href') === currentLocation) {
+            item.classList.add('active');
+        }
+    });
+});
+
