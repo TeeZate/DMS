@@ -63,8 +63,6 @@
     </div>
 </div>
 
-
- 
 <footer class="footer">
     <div class="footer-content">
         <a href="index.html" class="nav-logo">
@@ -91,63 +89,7 @@
     </div>
 </footer> 
     
-    <script>
-        const menuToggle = document.getElementById('menuToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        menuToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    
-        // Close menu when clicking a link
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Form handling
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-
-    // Construct email body
-    const emailBody = `
-Name: ${name}
-Email: ${email}
-Subject: ${subject}
-
-Message:
-${message}
-    `;
-
-    // Create mailto link
-    const mailtoLink = `mailto:info@dms.co.zw?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-
-    // Open default email client
-    window.location.href = mailtoLink;
-});
-
-// Add animation when form fields are in focus
-document.querySelectorAll('.form-group input, .form-group textarea').forEach(element => {
-    element.addEventListener('focus', function() {
-        this.parentElement.classList.add('focused');
-    });
-    
-    element.addEventListener('blur', function() {
-        if (!this.value) {
-            this.parentElement.classList.remove('focused');
-        }
-    });
-});
-document.getElementById('copyright').innerHTML = 
-`&copy; ${new Date().getFullYear()} Digital Monitoring Solutions. All Rights Reserved.`;
-    </script>
+<script src="main.js"></script>
       
 </body>
 </html>
