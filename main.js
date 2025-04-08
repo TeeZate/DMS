@@ -189,39 +189,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-// Form submission handling
 document.addEventListener('DOMContentLoaded', function() {
+    // Cache DOM elements
     const form = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
-    const submitButton = form.querySelector('.submit-btn');
+    const submitButton = form?.querySelector('.submit-btn');
+    
+    // Check if form exists before proceeding
+    if (!form) return;
 
-    // Check if form was just submitted (URL parameter check)
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('submitted') === 'true') {
-        formMessage.innerHTML = 'Thank you! Your message has been sent successfully.';
-        formMessage.className = 'form-message success';
-        // Clear form
-        form.reset();
-        // Remove the URL parameter
-        window.history.replaceState({}, document.title, window.location.pathname);
+    // Create success overlay if it doesn't exist
+    const successOverlayId = 'successOverlay';
+    let successOverlay = document.getElementById(successOverlayId);
+    if (!successOverlay) {
+        successOverlay = document.createElement('div');
+        successOverlay.id = successOverlayId;
+        document.body.appendChild(successOverlay);
     }
 
+    // Check URL parameters for submission status
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+        showSuccessMessage();
+    }
+
+    // Form submission handler
     form.addEventListener('submit', function(e) {
-        // Disable submit button to prevent double submission
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+        }
         
-        // Show sending message
-        formMessage.innerHTML = 'Sending your message...';
-        formMessage.className = 'form-message';
-        formMessage.style.display = 'block';
-        
-        // Form will submit normally to FormSubmit
-        // The page will redirect back with the submitted parameter
+        if (formMessage) {
+            formMessage.innerHTML = 'Sending your message...';
+            formMessage.className = 'form-message';
+            formMessage.style.display = 'block';
+        }
     });
 
-    // Optional: Add client-side validation
+    // Client-side validation
     const inputs = form.querySelectorAll('input[required], textarea[required]');
     inputs.forEach(input => {
         input.addEventListener('invalid', function(e) {
@@ -233,6 +239,32 @@ document.addEventListener('DOMContentLoaded', function() {
             input.classList.remove('error');
         });
     });
+
+    function showSuccessMessage() {
+        successOverlay.innerHTML = `
+            <div class="success-popup">
+                <div class="success-content">
+                    <div class="success-icon">✓</div>
+                    <h3>Thank You!</h3>
+                    <p>Your message has been sent successfully.</p>
+                    <button class="close-success">Close</button>
+                </div>
+            </div>
+        `;
+        successOverlay.style.display = 'flex';
+        
+        form.reset();
+        window.history.replaceState({}, document.title, window.location.pathname);
+
+        const closeButton = successOverlay.querySelector('.close-success');
+        if (closeButton) {
+            closeButton.addEventListener('click', () => {
+                successOverlay.style.display = 'none';
+            });
+        }
+
+        setTimeout(() => {
+            successOverlay.style.display = 'none';
+        }, 5000);
+    }
 });
-
-
