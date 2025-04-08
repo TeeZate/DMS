@@ -337,6 +337,11 @@ header {
     margin-left: auto;
     margin-right: auto;
 }
+.header-heading {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    margin-bottom: 1.2rem;
+    padding: 0 0.5rem;
+}
 
 .about-subheader {
     line-height: 1.2;
