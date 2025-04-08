@@ -145,15 +145,50 @@ if (!this.value) {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const currentLocation = window.location.pathname;
+    function getCurrentPage() {
+        // Get the current path
+        let path = window.location.pathname;
+        
+        // Remove trailing slash if present
+        path = path.endsWith('/') ? path.slice(0, -1) : path;
+        
+        // Get the last segment of the path
+        let currentPage = path.split('/').pop().toLowerCase();
+        
+        // If empty, assume index.html
+        if (!currentPage) {
+            currentPage = 'index.html';
+        }
+        
+        // If no extension, append .html
+        if (!currentPage.includes('.')) {
+            currentPage += '.html';
+        }
+        
+        return currentPage;
+    }
+    
+    const currentPage = getCurrentPage();
     const menuItems = document.querySelectorAll('.nav-menu a');
     
     menuItems.forEach(item => {
-        if(item.getAttribute('href') === currentLocation) {
+        let href = item.getAttribute('href').toLowerCase();
+        
+        // Normalize href
+        if (href === '/' || href === '') {
+            href = 'index.html';
+        }
+        
+        if (href === currentPage) {
             item.classList.add('active');
+            const parentLi = item.closest('li');
+            if (parentLi) {
+                parentLi.classList.add('active');
+            }
         }
     });
 });
+
 
 // Form submission handling
 document.addEventListener('DOMContentLoaded', function() {
