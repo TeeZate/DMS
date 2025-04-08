@@ -130,34 +130,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// // Form handling
-// document.getElementById('contactForm').addEventListener('submit', function(e) {
-//     e.preventDefault();
-
-//     // Get form values
-//     const firstName = document.getElementById('firstName').value;
-//     const lastName = document.getElementById('lastName').value;
-//     const email = document.getElementById('email').value;
-//     const phone = document.getElementById('phone').value;
-//     const message = document.getElementById('message').value;
-
-//     // Construct email subject and body
-//     const subject = `New Inquiry from ${firstName} ${lastName}`;
-//     const emailBody = `
-// Name: ${firstName} ${lastName}
-// Email: ${email}
-// Phone: ${phone}
-
-// Message:
-// ${message}
-// `;
-
-//     // Create mailto link
-//     const mailtoLink = `mailto:info@dms.co.zw?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-
-//     // Open default email client
-//     window.location.href = mailtoLink;
-// });
 
 // Add animation when form fields are in focus
 document.querySelectorAll('.form-group input, .form-group textarea').forEach(element => {
@@ -182,4 +154,50 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Form submission handling
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    const formMessage = document.getElementById('formMessage');
+    const submitButton = form.querySelector('.submit-btn');
+
+    // Check if form was just submitted (URL parameter check)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+        formMessage.innerHTML = 'Thank you! Your message has been sent successfully.';
+        formMessage.className = 'form-message success';
+        // Clear form
+        form.reset();
+        // Remove the URL parameter
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    form.addEventListener('submit', function(e) {
+        // Disable submit button to prevent double submission
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+        
+        // Show sending message
+        formMessage.innerHTML = 'Sending your message...';
+        formMessage.className = 'form-message';
+        formMessage.style.display = 'block';
+        
+        // Form will submit normally to FormSubmit
+        // The page will redirect back with the submitted parameter
+    });
+
+    // Optional: Add client-side validation
+    const inputs = form.querySelectorAll('input[required], textarea[required]');
+    inputs.forEach(input => {
+        input.addEventListener('invalid', function(e) {
+            e.preventDefault();
+            input.classList.add('error');
+        });
+        
+        input.addEventListener('input', function() {
+            input.classList.remove('error');
+        });
+    });
+});
+
 

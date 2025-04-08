@@ -34,11 +34,14 @@
             <!-- Add a hidden input for the subject -->
             <input type="hidden" name="_subject" value="New Inquiry from DMS Website">
             
-            <!-- Prevent FormSubmit from showing a success page -->
-            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+            <!-- Prevent FormSubmit from showing a success page and return to same page -->
+            <input type="hidden" name="_next" value="https://dms.co.zw/contact-us.html?submitted=true">
             
-            <!-- Enable captcha (optional) -->
-            <input type="hidden" name="_captcha" value="false">
+            <!-- Enable captcha -->
+            <input type="hidden" name="_captcha" value="true">
+            
+            <!-- Add honeypot to prevent spam -->
+            <input type="text" name="_honey" style="display:none">
             
             <div class="form-row">
                 <div class="form-group">
@@ -57,8 +60,13 @@
             <div class="form-group message-group">
                 <textarea id="message" name="message" placeholder="Message" required></textarea>
             </div>
+            
+            <!-- Add feedback messages -->
+            <div id="formMessage" class="form-message"></div>
+            
             <button type="submit" class="submit-btn">Submit</button>
         </form>
+        
     </div>
 </div>
 

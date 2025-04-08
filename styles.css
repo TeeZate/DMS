@@ -209,6 +209,7 @@ nav {
     }
 }
 
+
 /* Adjust header padding to account for fixed nav */
 header {
 margin-top: 70px;
@@ -328,16 +329,20 @@ header {
     padding: 120px 0;
 }
 .header-subheading {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: #fff;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.about-subheader {
+    line-height: 1.2;
+    margin-bottom: 2rem;
     color: #fff;
 }
-
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
 header p {
     font-size: 1.2rem;
     margin-bottom: 30px;
@@ -354,7 +359,7 @@ header p {
 
 #about h2 {
     color:white;
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .about-container {
@@ -1090,7 +1095,7 @@ header p {
 
     .footer-content {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         justify-content: space-between;
         align-items: center;
         padding: 0.5rem;
@@ -1117,6 +1122,24 @@ header p {
 }
 
 @media screen and (max-width: 480px) {
+    .nav-menu {
+        position: fixed;
+        text-decoration: none;
+        padding-top: 40px;
+        top: 0;
+        left: -100%;
+        height: 100vh;
+        width: 80%;
+        max-width: 300px;
+        background: white;
+        color: #0c4348;
+        gap: 0px;
+        display: flex;
+        flex-direction: column;
+        transition: left 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+        z-index: 1002; /* Higher than overlay to prevent blur effect */
+        box-shadow: 2px 0 15px rgba(0,0,0,0.3);
+    }
     .footer {
         display: flex;
         flex-direction: column;
@@ -1350,3 +1373,30 @@ header p {
 .header-description {
     animation-delay: 0.2s;
 }
+
+.form-message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    display: none;
+}
+
+.form-message.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
